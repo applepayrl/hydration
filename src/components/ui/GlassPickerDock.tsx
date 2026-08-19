@@ -11,7 +11,7 @@ interface GlassPickerDockProps {
 
 export const GlassPickerDock: React.FC<GlassPickerDockProps> = ({ onSelectCup, disabled = false }) => {
   return (
-    <div className="w-full px-4 pb-6 pt-2 z-20 select-none">
+    <div className="safe-bottom w-full pt-2 z-20 select-none">
       <div className="flex items-center justify-between px-2 mb-2">
         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
           Tap Glass to Drink
@@ -48,7 +48,7 @@ export const GlassPickerDock: React.FC<GlassPickerDockProps> = ({ onSelectCup, d
                 <h4 className="text-xs font-bold text-white truncate group-hover:text-cyan-300 transition-colors">
                   {cup.shortName}
                 </h4>
-                <p className="text-[9px] text-slate-400 truncate mt-0.5">
+                <p className="text-[9px] text-slate-400 mt-0.5 leading-tight line-clamp-2">
                   {cup.subtitle}
                 </p>
               </div>

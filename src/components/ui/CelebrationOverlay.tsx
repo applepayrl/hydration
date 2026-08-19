@@ -53,7 +53,7 @@ export const CelebrationOverlay: React.FC<CelebrationOverlayProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md animate-fade-in select-none">
+    <div className="safe-overlay fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-md animate-fade-in select-none">
       <div className="relative w-full max-w-sm bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border border-cyan-400/30 rounded-3xl p-6 shadow-[0_0_50px_rgba(56,189,248,0.25)] text-center flex flex-col items-center">
         {/* Glow */}
         <div className="absolute -top-12 inset-x-0 h-24 bg-cyan-400/20 blur-2xl pointer-events-none rounded-full" />

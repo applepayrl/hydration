@@ -1,30 +1,39 @@
 # Progress
 
 ## Goal
-Publish this Vite/React hydration app to GitHub Pages at https://applepayrl.github.io/hydration/
+Always run the app fullscreen (no mock iPhone frame). Home Screen / standalone on iPhone 17 Pro should look native and not overlap the status bar / Dynamic Island / home indicator. Redeploy to GitHub Pages.
 
 ## Status
-- Done. Site is live.
+- Visual tests passed. Ready to commit and redeploy.
 
 ## Done
-- Public repo: https://github.com/applepayrl/hydration
-- Pages: https://applepayrl.github.io/hydration/
-- First Actions run `32308000285` succeeded (build 24s, deploy 10s)
-- Verified HTTP 200 for `/hydration/`, `/hydration/assets/index-CUyV7bC0.js`, `/hydration/assets/index-CbRbBvYA.css`, `/hydration/water-drop.svg`
-- Vite `base` is `/hydration/` on `build` only, `/` during `vite` so local/LAN still works
-- Favicon uses `%BASE_URL%water-drop.svg`; `public/.nojekyll` present
-- Workflow: `.github/workflows/deploy-pages.yml` (push to `main` republishes)
+- Removed `IPhoneFrame` and the fullscreen toggle; app is always `.app-shell` at `100dvh`
+- Safe-area CSS vars (`--safe-top/bottom/left/right`) on header, dock, pour overlay, and modals
+- iOS PWA: `apple-mobile-web-app-capable`, `black-translucent` status bar, `apple-mobile-web-app-title=AquaFlow`, manifest `display=standalone`, apple-touch-icon, 5 startup images
+- Generated icons/splashes via `scripts/generate-pwa-assets.mjs`
+- iPhone 17 Pro visual test (`scripts/test-iphone-17-pro.mjs`) ALL CHECKS PASSED:
+  - header top 65 ≥ 62
+  - dock bottom 840 ≤ 840
+  - pour controls top 62 ≥ 62
+  - no mock frame
+  - PWA tags + standalone manifest
+- Screenshots reviewed: home, settings, history, pour, desktop — no status-bar overlap
 
 ## Next
-- None for publish. Later source changes: commit + push `main`.
+1. Commit and push `main`
+2. Wait for Pages workflow
+3. Verify live HTML has PWA tags and no IPhone frame
 
 ## Decisions / assumptions
-- Assumption: public project repo `applepayrl/hydration` (not a user site).
-- GitHub Actions Pages deploy; no `gh-pages` npm package.
-- Local git identity in this repo: `applepayrl` / `278465442+applepayrl@users.noreply.github.com` (no global git user was set).
+- iPhone 17 Pro: 402×874 CSS px, portrait safe area top 62 / bottom 34
+- Native look = edge-to-edge `#090d16` + translucent status bar + content inset, not an opaque status bar
+- No browser MCP; Puppeteer + screenshots + geometry asserts
 
 ## Success criteria
-1. `https://applepayrl.github.io/hydration/` returns HTTP 200 with the app HTML. PASS
-2. Built JS/CSS URLs are under `/hydration/assets/…`. PASS
-3. Favicon resolves under `/hydration/water-drop.svg`. PASS
-4. Repo exists at `https://github.com/applepayrl/hydration` and is public. PASS
+1. No mock chassis / Fullscreen / iPhone Frame control. PASS
+2. App root fills viewport. PASS
+3. With insets 62/34, header ≥ 62 and dock bottom ≤ 840. PASS
+4. PWA meta + icon + manifest present. PASS
+5. Manifest display standalone. PASS
+6. Screenshots show header below island and dock above home indicator. PASS
+7. Live site updated. PENDING

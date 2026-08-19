@@ -201,7 +201,7 @@ export const CinematicPourScene: React.FC<CinematicPourSceneProps> = ({ cupId, o
   return (
     <div className="absolute inset-0 z-50 flex flex-col bg-slate-950/95 backdrop-blur-xl animate-fade-in select-none">
       {/* Top Header info */}
-      <div className="p-6 flex items-center justify-between z-10">
+      <div className="safe-top px-5 pb-4 flex items-center justify-between z-10">
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 backdrop-blur-md">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
           <span className="text-xs font-semibold text-cyan-300">Filling with Pure Water...</span>
@@ -227,7 +227,7 @@ export const CinematicPourScene: React.FC<CinematicPourSceneProps> = ({ cupId, o
       </div>
 
       {/* Bottom Status & Info */}
-      <div className="p-6 pb-10 flex flex-col items-center gap-4 z-10">
+      <div className="safe-bottom px-6 pt-4 flex flex-col items-center gap-4 z-10">
         <div className="text-center">
           <div className="text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-2">
             <span>{cup.name}</span>

@@ -9,7 +9,6 @@ import {
   generateSampleLogs,
 } from './utils/storage';
 import { soundEngine } from './utils/audio';
-import { IPhoneFrame } from './components/ui/IPhoneFrame';
 import { IntakeHeader } from './components/ui/IntakeHeader';
 import { DrinkBoardScene } from './components/3d/DrinkBoardScene';
 import { GlassPickerDock } from './components/ui/GlassPickerDock';
@@ -20,7 +19,6 @@ import { CelebrationOverlay } from './components/ui/CelebrationOverlay';
 
 export function App() {
   const [state, setState] = useState<HydrationState>(() => loadHydrationState());
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Modals state
   const [selectedCupForPour, setSelectedCupForPour] = useState<CupId | null>(null);
@@ -120,11 +118,8 @@ export function App() {
   };
 
   return (
-    <IPhoneFrame
-      isFullscreen={isFullscreen}
-      onToggleFullscreen={() => setIsFullscreen(!isFullscreen)}
-    >
-      <div className="relative w-full h-full flex flex-col justify-between overflow-hidden bg-slate-950">
+    <div className="app-shell">
+      <div className="relative w-full h-full flex flex-col justify-between overflow-hidden bg-[#090d16]">
         {/* Top Intake Summary & Controls */}
         <IntakeHeader
           totalOz={totalOz}
@@ -186,7 +181,7 @@ export function App() {
           onClose={() => setIsCelebrationOpen(false)}
         />
       </div>
-    </IPhoneFrame>
+    </div>
   );
 }
 

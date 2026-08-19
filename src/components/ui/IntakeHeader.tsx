@@ -32,7 +32,7 @@ export const IntakeHeader: React.FC<IntakeHeaderProps> = ({
   const strokeDashoffset = circumference - (percent / 100) * circumference;
 
   return (
-    <div className="w-full flex flex-col gap-3 px-5 pt-3 pb-2 z-20 select-none">
+    <div className="safe-top w-full flex flex-col gap-3 pb-2 z-20 select-none">
       {/* Top action row */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">

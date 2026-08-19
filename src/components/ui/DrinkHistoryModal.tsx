@@ -24,7 +24,7 @@ export const DrinkHistoryModal: React.FC<DrinkHistoryModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in select-none">
+    <div className="safe-overlay fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md animate-fade-in select-none">
       <div className="relative w-full max-w-md bg-slate-900/95 border border-white/15 rounded-3xl p-5 shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-white/10">
