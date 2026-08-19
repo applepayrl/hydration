@@ -4,35 +4,27 @@
 Publish this Vite/React hydration app to GitHub Pages at https://applepayrl.github.io/hydration/
 
 ## Status
-- In progress: create repo, push, enable Pages, wait for first deploy
-- Local production build verified
+- Done. Site is live.
 
 ## Done
-- Confirmed `gh` is logged in as `applepayrl`
-- Confirmed `applepayrl/hydration` did not exist
-- Added `.gitignore`, `base: '/hydration/'`, `%BASE_URL%` favicon, `public/.nojekyll`, `.github/workflows/deploy-pages.yml`
-- `npm run build` succeeded; `dist/index.html` uses `/hydration/assets/…` and `/hydration/water-drop.svg`
-
-## In progress
-- git init, first commit, `gh repo create`, enable Pages
+- Public repo: https://github.com/applepayrl/hydration
+- Pages: https://applepayrl.github.io/hydration/
+- First Actions run `32308000285` succeeded (build 24s, deploy 10s)
+- Verified HTTP 200 for `/hydration/`, `/hydration/assets/index-CUyV7bC0.js`, `/hydration/assets/index-CbRbBvYA.css`, `/hydration/water-drop.svg`
+- Vite `base` is `/hydration/` on `build` only, `/` during `vite` so local/LAN still works
+- Favicon uses `%BASE_URL%water-drop.svg`; `public/.nojekyll` present
+- Workflow: `.github/workflows/deploy-pages.yml` (push to `main` republishes)
 
 ## Next
-1. `git init -b main`, local commit identity, commit source (not `node_modules`/`dist`)
-2. `gh repo create applepayrl/hydration --public --source=. --remote=origin --push`
-3. Enable Pages `build_type=workflow`
-4. Wait for Actions deploy
-5. Fetch https://applepayrl.github.io/hydration/ and confirm HTML/assets load
+- None for publish. Later source changes: commit + push `main`.
 
 ## Decisions / assumptions
-- Assumption: public repo named `hydration` under `applepayrl` (project site, not a user site).
-- Deploy via GitHub Actions (`actions/deploy-pages`) so later pushes to `main` republish automatically.
-- Token-efficient: no extra npm deploy packages (`gh-pages`); CI builds `dist/` from source.
+- Assumption: public project repo `applepayrl/hydration` (not a user site).
+- GitHub Actions Pages deploy; no `gh-pages` npm package.
+- Local git identity in this repo: `applepayrl` / `278465442+applepayrl@users.noreply.github.com` (no global git user was set).
 
 ## Success criteria
-1. `https://applepayrl.github.io/hydration/` returns HTTP 200 with the app HTML.
-2. Built JS/CSS URLs are under `/hydration/assets/…` (not `/assets/…`).
-3. Favicon resolves under `/hydration/water-drop.svg`.
-4. Repo exists at `https://github.com/applepayrl/hydration` and is public.
-
-## Open questions
-- None that block publish. Local `npm run dev` still works; `base` only affects asset URLs in production (and when visiting `/hydration/` locally).
+1. `https://applepayrl.github.io/hydration/` returns HTTP 200 with the app HTML. PASS
+2. Built JS/CSS URLs are under `/hydration/assets/…`. PASS
+3. Favicon resolves under `/hydration/water-drop.svg`. PASS
+4. Repo exists at `https://github.com/applepayrl/hydration` and is public. PASS
