@@ -4,7 +4,7 @@
 Always run the app fullscreen (no mock iPhone frame). Home Screen / standalone on iPhone 17 Pro should look native and not overlap the status bar / Dynamic Island / home indicator. Redeploy to GitHub Pages.
 
 ## Status
-- Visual tests passed. Ready to commit and redeploy.
+- Done. Live at https://applepayrl.github.io/hydration/
 
 ## Done
 - Removed `IPhoneFrame` and the fullscreen toggle; app is always `.app-shell` at `100dvh`
@@ -20,9 +20,7 @@ Always run the app fullscreen (no mock iPhone frame). Home Screen / standalone o
 - Screenshots reviewed: home, settings, history, pour, desktop — no status-bar overlap
 
 ## Next
-1. Commit and push `main`
-2. Wait for Pages workflow
-3. Verify live HTML has PWA tags and no IPhone frame
+- None. If a previously added Home Screen icon looks stale, delete it and Add to Home Screen again.
 
 ## Decisions / assumptions
 - iPhone 17 Pro: 402×874 CSS px, portrait safe area top 62 / bottom 34
@@ -36,4 +34,4 @@ Always run the app fullscreen (no mock iPhone frame). Home Screen / standalone o
 4. PWA meta + icon + manifest present. PASS
 5. Manifest display standalone. PASS
 6. Screenshots show header below island and dock above home indicator. PASS
-7. Live site updated. PENDING
+7. Live site updated (PWA tags, icons, splash, new JS `index-Cq6nOsQy.js`). PASS
